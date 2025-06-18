@@ -26,7 +26,12 @@ public class OrderService {
     if (isProductInStock){
       var order = orderRepository.save(dto.toEntity());
 
-      OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), dto.userDetails().email());
+      OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent();
+      orderPlacedEvent.setOrderNumber(order.getOrderNumber());
+      orderPlacedEvent.setEmail(dto.userDetails().email());
+      orderPlacedEvent.setFirstName(dto.userDetails().firstName());
+      orderPlacedEvent.setLastName(dto.userDetails().lastName());
+      
       log.info("Start - Sending OrderPlacedEvent {} to Kafka topic order-placed", orderPlacedEvent);
       kafkaTemplate.send("order-placed", orderPlacedEvent);
       log.info("End - Sending OrderPlacedEvent {} to Kafka topic order-placed", orderPlacedEvent);
