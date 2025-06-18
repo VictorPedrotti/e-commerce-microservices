@@ -6,7 +6,10 @@ import java.util.UUID;
 import com.estudosjava.order_service.model.Order;
 
 public record OrderRequestDto(Long id, String orderNumber, String skuCode,
-                              BigDecimal price, Integer quantity) {
+                              BigDecimal price, Integer quantity, UserDetails userDetails) {
+
+  public record UserDetails(String email, String firstName, String lastName) {
+  }
 
   public Order toEntity() {
     Order order = new Order();
