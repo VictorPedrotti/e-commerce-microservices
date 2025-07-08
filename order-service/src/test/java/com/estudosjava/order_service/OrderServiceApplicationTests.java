@@ -16,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     properties = {
-        "inventory.url=http://localhost:${wiremock.server.port}"
+        "inventory.service.url=http://localhost:${wiremock.server.port}"
     }
 )
 @AutoConfigureWireMock(port = 0)
