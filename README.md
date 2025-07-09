@@ -42,7 +42,7 @@ Este projeto é uma aplicação e-commerce simplificada desenvolvida com arquite
 | Mensageria      | Apache Kafka                                        |
 | Segurança       | Keycloak (OAuth2 / OpenID Connect)                  |
 | Testes          | Testcontainers, WireMock                            |
-| Observabilidade | Prometheus, Grafana, Loki, Tempo, OpenTelemetry     |
+| Observabilidade | Prometheus, Grafana, Loki, Tempo                    |
 | Resiliência     | Resilience4J                                        |
 | Infraestrutura  | Docker, Kubernetes                                  |
 
@@ -62,12 +62,10 @@ Todo o ecossistema está preparado para observabilidade com a stack Grafana:
 ## 📦 Estrutura de Diretórios (Simplificada)
 ```
 ├── api-gateway/
-├── auth-server/
 ├── product-service/
 ├── order-service/
 ├── inventory-service/
 ├── notification-service/
 ├── frontend/ (Angular)
-├── k8s/ (manifests do Kubernetes)
-└── monitoring/ (Prometheus, Grafana, Tempo, etc.)
+└── k8s/ (manifests do Kubernetes)
 ```
